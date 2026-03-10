@@ -34,7 +34,7 @@ def normalizar_access_status(df: pd.DataFrame, col: str = "Access_status") -> pd
 def procesar_teachers(teachers_path: str):
     df_teachers = leer_csv(teachers_path)
     df_teachers = normalizar_access_status(df_teachers, "Access_status")
-    df_teachers = df_teachers[df_teachers["Name" != "Docente"]]
+    df_teachers = df_teachers[df_teachers["Name"] != "Docente"]
 
     con_acceso = df_teachers[df_teachers["Access_status"] == "1"].copy()
     sin_acceso = df_teachers[df_teachers["Access_status"] == "0"].copy()
